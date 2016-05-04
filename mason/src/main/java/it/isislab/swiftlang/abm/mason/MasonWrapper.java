@@ -30,6 +30,9 @@ public class MasonWrapper
 
 	SimState state;
 
+	@Option(required = false, name="-simstate", usage = "SimState name optional, if not the first one is used (full qualified name)")
+	private String simstatename="";
+	
 	@Option(name="-m",usage="mason model path")
 	private String model_path;
 
@@ -308,7 +311,11 @@ public class MasonWrapper
 			URL[] urls = new URL[]{url};
 			@SuppressWarnings("resource")
 			ClassLoader cl = new URLClassLoader(urls);
+			
+			
 			Class distributedState=null;
+			
+			if(simstatename.equalsIgnoreCase(""))
 			while(e.hasMoreElements()){
 
 				JarEntry je=(JarEntry)e.nextElement();
@@ -330,6 +337,9 @@ public class MasonWrapper
 					break;
 				}
 
+			}
+			else{
+				distributedState=cl.loadClass(simstatename);
 			}
 			if(distributedState==null) return null;
 			@SuppressWarnings("resource")
