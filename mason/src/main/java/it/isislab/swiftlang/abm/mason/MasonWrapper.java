@@ -10,6 +10,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -17,9 +18,6 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 
-import com.google.common.util.concurrent.ExecutionError;
-
-import scala.util.Random;
 import sim.engine.SimState;
 /**
 @Author(
