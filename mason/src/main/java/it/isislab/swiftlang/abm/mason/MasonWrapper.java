@@ -30,7 +30,7 @@ public class MasonWrapper
 
 	SimState state;
 
-	@Option(name="-m",usage="netlogo model path")
+	@Option(name="-m",usage="mason model path")
 	private String model_path;
 
 	@Option(name="-outfile",usage="output to this file",metaVar="OUTPUT")
@@ -155,14 +155,14 @@ public class MasonWrapper
 
 		} catch( CmdLineException e ) {
 			System.err.println(e.getMessage());
-			System.err.println("java NetLogoWrapper [options...] arguments...");
+			System.err.println("java MASONWrapper [options...] arguments...");
 			parser.printUsage(System.err);
 			System.err.println();
 
 			return;
 		}
 
-		System.out.println("NetLogo model: "+model_path);
+		System.out.println("MASON model: "+model_path);
 
 		System.out.println("Output file: "+ out);
 
@@ -177,7 +177,7 @@ public class MasonWrapper
 
 				parameter.put(arguments[i], arguments[i+1]);
 			}catch (Exception e) {
-				System.out.println("java NetLogoWrapper [options...] arguments...");
+				System.out.println("java MASONWrapper [options...] arguments...");
 				System.out.println("You must pass parameters setting as couple: var_name1 value1 var_name2 vaue2 ...");
 				// print the list of available options
 				parser.printUsage(System.err);
