@@ -5,42 +5,21 @@ set -eu
 # Args
 param_line=$1   # The upf param line    
 #echo "$param_line"
-
 instanceDir=$2  # The instance directory
-tproot=$3
-#echo $instanceDir
-
-modelDir=$tproot"/complete_model/"
-
-cd $instanceDir
-ln -s $modelDir"data" data
-
-cPath=$modelDir"lib/*"
-
-#echo $cPath
-pxml=$modelDir"scenario.rs/batch_params.xml"
-
-#echo $pxml
-scenario=$modelDir"scenario.rs"
-
-#echo $scenario
-
-#/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/bin/
+modelname=$3
 
 if [[ ${JAVA:-0} == 0 ]] 
 then
   JAVA=java 
 fi
-$JAVA -Xmx1536m -XX:-UseLargePages -jar netlogo-1.0-wrapper.jar
 
--cp "$cPath" repast.simphony.batch.InstanceRunner \
-        -pxml "$pxml" \
-        -scenario "$scenario" \
-        -id 1 "$param_line"
--m resources/models/JZombiesLogo.nlogo 
--outfile test.out 
--runid 1 
--s 10 
--trial 1 
--i num-people,800,num-infected,10,f_humans,2.3,f_zombies,1.5 
--o end_humans,end_infected
+IFS=','
+read -ra PARAMS <<< "$param_line"
+$JAVA -Xmx1536m -XX:-UseLargePages -jar netlogo-1.0-wrapper.jar
+	-m $instanceDir/$modelname \
+	-outfile counts.csv \
+	-runid 1 \
+	-s 150 \
+	-trial 1 \
+	-i human_count,${PARAMS[0]},zombie_count,${PARAMS[1]},human_step_size,${PARAMS[2]},zombie_step_size,${PARAMS[3]} \
+	-o human_count\
