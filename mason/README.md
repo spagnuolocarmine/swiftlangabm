@@ -14,9 +14,10 @@ In the folder ` resources/models` there is a NetLogo example model for an epidem
 
 The model is characterized by:
 
-  - num-people, the number of people involved in the simulation process;
-  - num_infected, the intial number (at time 0 of the simulation) of infected people;
-  - end_infected, the total number of infected after the end of the simulation.
+  - human_count, the number of people involved in the simulation process;
+  - zombie_count, the intial number (at time 0 of the simulation) of infected people;
+  - human_step_size, the human velocity;
+  - zombie_step_size, the zombie velocity.
 
 ######Run the experiment:
 
