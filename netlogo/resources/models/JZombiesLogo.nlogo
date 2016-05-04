@@ -1,9 +1,7 @@
 turtles-own [
   infected?    ;; has the person been infected with the disease?
 ]
-globals[
-  end_infected
-]
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Setup Procedures ;;;
@@ -15,20 +13,18 @@ to setup
   make-turtles
   infect
   recolor
-  set end_infected num-infected
   reset-ticks
 end
 
 to make-turtles
-  create-turtles num-people [
+  create-turtles human_count [
     set infected? false
     setxy random-xcor random-ycor
   ]
 end
 to infect
-  ask n-of num-infected turtles [
+  ask n-of zombie_count turtles [
     set infected? true
-    set end_infected end_infected + 1
   ]
 end
 
@@ -58,25 +54,27 @@ to spread-infection
   ask turtles with [ infected? ] [
       ask turtles-here [
         set infected? true
-
         ]
-
   ]
-
 end
 ;;;;;;;;;;;;;;
 ;;; Layout ;;;
 ;;;;;;;;;;;;;;
 to move
     ask turtles [
-      fd ifelse-value infected? [ 1 ] [ 2 ]
+      fd ifelse-value infected? [ human_step_size ] [ zombie_step_size ]
       rt random 30
       lt random 30
     ]
-    set end_infected 0
+    set human_count 0
+    set zombie_count 0
     ask turtles with [ infected? ] [
-      set end_infected end_infected + 1
+      set zombie_count zombie_count + 1
     ]
+    ask turtles with [ not infected? ] [
+      set human_count human_count + 1
+    ]
+
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -145,11 +143,11 @@ SLIDER
 60
 380
 93
-num-people
-num-people
+human_count
+human_count
 2
 800
-262
+0
 1
 1
 NIL
@@ -177,11 +175,11 @@ SLIDER
 60
 180
 93
-num-infected
-num-infected
+zombie_count
+zombie_count
 0
-num-people
-29
+human_count
+1374
 1
 1
 NIL
@@ -211,10 +209,40 @@ MONITOR
 90
 145
 Infected
-end_infected
+zombie_count
 3
 1
 11
+
+SLIDER
+200
+110
+372
+143
+human_step_size
+human_step_size
+1
+3
+3
+0.1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+200
+155
+372
+188
+zombie_step_size
+zombie_step_size
+0.1
+2.0
+0.1
+0.1
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 ## ACKNOWLEDGMENT
