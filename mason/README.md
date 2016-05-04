@@ -10,7 +10,7 @@ The following command generate a target folder, inside it there is the Java wrap
 
 ####Examples
 
-In the folder ` resources/model` there is a NetLogo example model for an epidemic spread of a "Zombie Virus". Basically the ABM model is an instance of SIR model, where S = number susceptible, I =number infectious, and R =number recovered (immune), but without the last state I.
+In the folder ` resources/models` there is a NetLogo example model for an epidemic spread of a "Zombie Virus". Basically the ABM model is an instance of SIR model, where S = number susceptible, I =number infectious, and R =number recovered (immune), but without the last state I.
 
 The model is characterized by:
 
