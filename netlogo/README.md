@@ -20,23 +20,35 @@ The model is characterized by:
 
 ######Run the experiment:
 
-``` java -jar netlogo-1.0-wrapper.jar -m JZombiesLogo.nlogo -outfile test.out -s 3 -i num-people,800,num-infected,10 -o end_infected ```
+``` java -jar netlogo-1.0-wrapper.jar -m JZombiesLogo.nlogo -outfile test.csv -runid 1 -s 10 -trial 4 -i human_count,800,zombie_count,10,human_step_size,2.3,zombie_step_size,1.5 -o human_count```
 
   - ```-m```,  NetLogo model path;
   - ```-outfile```, output file for the outputs paramentes;
+  - ```-runid```,  run identify;
+  - ```-trial```,  number of trial to execute (for each one is changed the random seed randomly);
   - ```-s```, total number of steps;
   - ```-i```, list of input parameters (var1,value1,var2,value2 means var1=value1 and var2=value2);
   - ```-o```, list of output parameters.
 
 ######Example Output:
   ```
-  NetLogo model: JZombiesLogo.nlogo
-  Output file: test.out
-  Model parameters:
-  num-people 800
-  num-infected 10
-  Start simulation: 
-  \
-  Output parameters:
-  end_infected 27.0
+NetLogo model: ../resources/models/JZombiesLogo.nlogo
+Output file: test.csv
+Model parameters:
+human_count 800
+zombie_count 10
+human_step_size 2.3
+zombie_step_size 1.5
+Start simulation: 
+Run 0 with seed: 183054009
+\End run 0
+Run 1 with seed: -988756425
+\End run 1
+Run 2 with seed: 1230089036
+\End run 2
+Run 3 with seed: -84425216
+\End run 3
+
+Output parameters:
+human_count 521.0
   ```
