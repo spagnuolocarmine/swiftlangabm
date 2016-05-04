@@ -21,9 +21,10 @@ The model is characterized by:
 
 ######Run the experiment:
 
-``` java -jar mason-1.0-wrapper.jar -m resources/models/JZombiesMason.jar -outfile test.csv -runid 1 -s 10 -trial 4 -i human_count,800,zombie_count,10,human_step_size,2.3,zombie_step_size,1.5 -o human_count```
+``` java -jar mason-1.0-wrapper.jar -m resources/models/JZombieMason.jar -simstate it.isislab.swiftlang.abm.mason.zombie.JZombie -outfile test.csv -runid 1 -s 3 -trial 4 -i human_count,800,zombie_count,10,human_step_size,2.3,zombie_step_size,1.5 -o human_count```
 
   - ```-m```,  NetLogo model path;
+  - ```-simstate```,  full name of the SimState to instantiate (optional, if not the first one in the jar file is used);
   - ```-outfile```, output file for the outputs paramentes;
   - ```-runid```,  run identify;
   - ```-trial```,  number of trial to execute (for each one is changed the random seed randomly);
