@@ -9,9 +9,9 @@ This projects provides software wrapper to execute the most popular ABM simulato
 
 ##### Authors
 
-  - Carmine Spagnuolo (Univeristà degli Studi di Salerno) cspagnuolo@unisa.it
-  - Jonathan Ozik (Argonne National Laboratory) jozik@anl.gov 
-  - Nicholson Collier (Argonne National Laboratory) ncollier@anl.gov 
+  - Carmine Spagnuolo (Univeristà degli Studi di Salerno)
+  - Jonathan Ozik (Argonne National Laboratory)
+  - Nicholson Collier (Argonne National Laboratory)
 
 ##### License 
 
